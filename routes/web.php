@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CompressPhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/upload-image', [CompressPhotoController::class, 'showForm'])->name('compress.form');
+Route::post('/upload-image', [CompressPhotoController::class, 'uploadAndOptimize'])->name('compress.upload');
