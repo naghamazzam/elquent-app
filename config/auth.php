@@ -37,7 +37,11 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
+            'driver' => 'session',// يستخدم للجلسات (الكوكيز والمتصفح)
+            'provider' => 'users',
+        ],
+        'api' => [
+            'driver' => 'sanctum', // هذا يلي لازم نستخدمه للتوكن
             'provider' => 'users',
         ],
     ],

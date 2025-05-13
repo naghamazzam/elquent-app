@@ -4,6 +4,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Auth;
+
+Route::post('login', [AuthController::class, 'login']);
+Route::middleware('auth:sanctum')->get('/me', [AuthController::class, 'me']);
+Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logout']);
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +50,4 @@ Route::get('/user/show/{id}', [UserController::class, 'show']);
 
 // ------------------------- Api Routes ------------------------
 Route::post('/user/login', [UserController::class, 'login']);
+
